@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Rental Mobil</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class ="collapse navbar-collapse" id="navbarNav">
+                
+                    <ul class="navbar-nav ms-auto">
+                        <li><a th:href="@{/mobils/create}" class="nav-link">Tambah Mobil</a></li>
+                        <li><a th:href="@{/UserHistory}" class="nav-link">User History</a></li>
+                        <li th:if="${#authentication != null}">
+                            <form action="#" th:action="@{/logout}" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-link nav-link" style="border: none; background: none;">Logout</button>
+                            </form>
+                        </li>
+                        <li th:if="${#authentication == null}"><a th:href="@{/login}" class="nav-link" method="Post">Login</a></li>
+                        <li th:if="${#authentication == null}"><a th:href="@{/register}" class="nav-link">Register</a></li>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+    </body>
+</html>
